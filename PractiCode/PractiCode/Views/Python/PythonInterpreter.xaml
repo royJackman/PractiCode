@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PractiCode.Views.Python.PythonInterpreter">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Python Interpreter"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" 
+                   FontSize="Large"/>
+            <Entry x:Name="PyterpreterTextEntry" 
+                   Placeholder="Your code here!"
+                   HeightRequest="300"
+                   BackgroundColor="{StaticResource SelectedPrimary}"/>
+            <Button Text="Run" Clicked="OnRunButtonClicked"/>
+            <Button Text="Clear" Clicked="OnClearButtonClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

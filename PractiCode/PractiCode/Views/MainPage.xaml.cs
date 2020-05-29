@@ -6,6 +6,11 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using PractiCode.Models;
+using PractiCode.ViewModels;
+using PractiCode.Views.Python;
+using PractiCode.Views.CSharp;
+using PractiCode.Views.Java;
+using PractiCode.Views.TypeScript;
 
 namespace PractiCode.Views
 {
@@ -33,8 +38,17 @@ namespace PractiCode.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                    case (int)MenuItemType.Python:
+                        MenuPages.Add(id, new NavigationPage(new PythonMain()));
+                        break;
+                    case (int)MenuItemType.CSharp:
+                        MenuPages.Add(id, new NavigationPage(new CSharpMain()));
+                        break;
+                    case (int)MenuItemType.Java:
+                        MenuPages.Add(id, new NavigationPage(new JavaMain()));
+                        break;
+                    case (int)MenuItemType.TypeScript:
+                        MenuPages.Add(id, new NavigationPage(new TypeScriptMain()));
                         break;
                 }
             }

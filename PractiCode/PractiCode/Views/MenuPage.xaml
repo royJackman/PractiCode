@@ -20,9 +20,10 @@
     
     <StackLayout VerticalOptions="FillAndExpand">
         <Image HeightRequest="100" 
-               WidthRequest="300"
+               WidthRequest="200"
                Source="practicode_logo.png"/>
-        <ListView x:Name="ListViewMenu">
+        <ListView x:Name="ListViewMenu"
+                  ItemSelected="OnItemSelected">
             <d:ListView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Item 1</x:String>
@@ -32,7 +33,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid Padding="10">
+                        <Grid Padding="10" x:Name="{Binding Title}">
                             <Label Text="{Binding Title}" d:Text="{Binding .}" FontSize="20"/>
                         </Grid>
                     </ViewCell>

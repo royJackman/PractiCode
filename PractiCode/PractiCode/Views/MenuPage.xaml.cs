@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,7 +22,10 @@ namespace PractiCode.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.Python, Title="Python" },
+                new HomeMenuItem {Id = MenuItemType.CSharp, Title="C#" },
+                new HomeMenuItem {Id = MenuItemType.Java, Title="Java" },
+                new HomeMenuItem {Id = MenuItemType.TypeScript, Title="TypeScript" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
@@ -35,6 +39,20 @@ namespace PractiCode.Views
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
                 await RootPage.NavigateFromMenu(id);
             };
+        }
+
+        private void OnItemSelected(object sender, EventArgs e)
+        {
+            try
+            {
+                var list = (ListView)sender;
+                var listItem = (HomeMenuItem)list.SelectedItem;
+                NameScopeExtensions.FindByName<Grid>((Element)sender, listItem.Title).BackgroundColor = (Color)Application.Current.Resources["SelectedPrimary"];
+            } 
+            catch
+            {
+                Console.WriteLine("Could not change label color");
+            }
         }
     }
 }

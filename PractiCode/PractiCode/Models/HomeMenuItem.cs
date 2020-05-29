@@ -7,7 +7,10 @@ namespace PractiCode.Models
     public enum MenuItemType
     {
         Browse,
-        About
+        Python,
+        CSharp,
+        Java,
+        TypeScript
     }
     public class HomeMenuItem
     {
