@@ -47,7 +47,7 @@ namespace PractiCode.Views
                     case (int)MenuItemType.Java:
                         MenuPages.Add(id, new NavigationPage(new JavaMain()));
                         break;
-                    case (int)MenuItemType.TypeScript:
+                    case (int)MenuItemType.JavaScript:
                         MenuPages.Add(id, new NavigationPage(new TypeScriptMain()));
                         break;
                 }

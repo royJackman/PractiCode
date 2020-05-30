@@ -10,7 +10,8 @@ namespace PractiCode.Models
         Python,
         CSharp,
         Java,
-        TypeScript
+        TypeScript,
+        JavaScript
     }
     public class HomeMenuItem
     {

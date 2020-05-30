@@ -25,7 +25,7 @@ namespace PractiCode.Views
                 new HomeMenuItem {Id = MenuItemType.Python, Title="Python" },
                 new HomeMenuItem {Id = MenuItemType.CSharp, Title="C#" },
                 new HomeMenuItem {Id = MenuItemType.Java, Title="Java" },
-                new HomeMenuItem {Id = MenuItemType.TypeScript, Title="TypeScript" }
+                new HomeMenuItem {Id = MenuItemType.JavaScript, Title="JavaScript" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
