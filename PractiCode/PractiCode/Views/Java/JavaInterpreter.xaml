@@ -7,9 +7,25 @@
              x:Class="PractiCode.Views.Java.JavaInterpreter">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Java Interpreter"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="Large"/>
+            <Editor x:Name="JavaInterpreterTextEditor" 
+                    Placeholder="Your code here!"
+                    HeightRequest="200"
+                    BackgroundColor="{StaticResource SelectedPrimary}"
+                    FontFamily="monospace"
+                    IsSpellCheckEnabled="False"
+                    IsTextPredictionEnabled="False"/>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
+                <Button Text="Run" Clicked="OnRunButtonClicked"/>
+                <Button Text="Clear" Clicked="OnClearButtonClicked"/>
+            </StackLayout>
+            <Label x:Name="JavaInterpreterOutputLabel" 
+                   Text="No output yet"
+                   FontFamily="monospace"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

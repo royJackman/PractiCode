@@ -12,6 +12,7 @@ namespace PractiCode.Services
         private static readonly HttpClient client = new HttpClient();
         public static string PaizaBaseUrl = "https://api.paiza.io/runners/";
         public static string HackerEarthRunUrl = "https://api.hackerearth.com/code/run/";
+        public static string RextesterUrl = "https://rextester.com/rundotnet/api";
 
         public static async Task<Dictionary<string, object>> ExexuteCodeRemotely(string source, string lang, bool async, int time_limit)
         {
@@ -26,6 +27,21 @@ namespace PractiCode.Services
             };
             var content = new FormUrlEncodedContent(values);
             var response = await client.PostAsync(HackerEarthRunUrl, content);
+            var responseString = await response.Content.ReadAsStringAsync();
+            return await Task.FromResult(JsonConvert.DeserializeObject<Dictionary<string, object>>(responseString));
+        }
+
+        public static async Task<Dictionary<string, object>> ExecuteCodeRemotely(int LanguageChoice, string Program, string Input, string CompilerArgs)
+        {
+            var values = new Dictionary<string, string>
+            {
+                { "LanguageChoice", LanguageChoice.ToString() },
+                { "Program", Program },
+                { "Input", Input },
+                { "CompilerArgs", CompilerArgs }
+            };
+            var content = new FormUrlEncodedContent(values);
+            var response = await client.PostAsync(RextesterUrl, content);
             var responseString = await response.Content.ReadAsStringAsync();
             return await Task.FromResult(JsonConvert.DeserializeObject<Dictionary<string, object>>(responseString));
         }
