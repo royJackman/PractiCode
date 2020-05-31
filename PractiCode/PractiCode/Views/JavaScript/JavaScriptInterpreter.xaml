@@ -7,9 +7,27 @@
              x:Class="PractiCode.Views.JavaScript.JavaScriptInterpreter">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="JavaScript Interpreter"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="Large"/>
+            <Editor x:Name="JavaScriptInterpreterTextEditor" 
+                    Placeholder="Your code here!"
+                    HeightRequest="200"
+                    BackgroundColor="{StaticResource SelectedPrimary}"
+                    FontFamily="monospace"
+                    IsSpellCheckEnabled="False"
+                    IsTextPredictionEnabled="False"/>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
+                <Button Text="Run" Clicked="OnRunButtonClicked"/>
+                <Button Text="Clear" Clicked="OnClearButtonClicked"/>
+            </StackLayout>
+            <Label x:Name="JavaScriptInterpreterOutputLabel" 
+                   Text="No output yet"
+                   FontFamily="monospace"/>
+            <Label x:Name="JavaScriptInterpreterErrorLabel"
+                   FontFamily="monospace"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

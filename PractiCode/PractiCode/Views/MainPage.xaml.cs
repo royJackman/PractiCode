@@ -10,7 +10,7 @@ using PractiCode.ViewModels;
 using PractiCode.Views.Python;
 using PractiCode.Views.CSharp;
 using PractiCode.Views.Java;
-using PractiCode.Views.TypeScript;
+using PractiCode.Views.JavaScript;
 
 namespace PractiCode.Views
 {
@@ -48,7 +48,7 @@ namespace PractiCode.Views
                         MenuPages.Add(id, new NavigationPage(new JavaMain()));
                         break;
                     case (int)MenuItemType.JavaScript:
-                        MenuPages.Add(id, new NavigationPage(new TypeScriptMain()));
+                        MenuPages.Add(id, new NavigationPage(new JavaScriptMain()));
                         break;
                 }
             }

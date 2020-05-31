@@ -7,9 +7,27 @@
              x:Class="PractiCode.Views.CSharp.CSharpInterpreter">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="C# Interpreter"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="Large"/>
+            <Editor x:Name="CSharpInterpreterTextEditor" 
+                    Placeholder="Your code here!"
+                    HeightRequest="200"
+                    BackgroundColor="{StaticResource SelectedPrimary}"
+                    FontFamily="monospace"
+                    IsSpellCheckEnabled="False"
+                    IsTextPredictionEnabled="False"/>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
+                <Button Text="Run" Clicked="OnRunButtonClicked"/>
+                <Button Text="Clear" Clicked="OnClearButtonClicked"/>
+            </StackLayout>
+            <Label x:Name="CSharpInterpreterOutputLabel" 
+                   Text="No output yet"
+                   FontFamily="monospace"/>
+            <Label x:Name="CSharpInterpreterErrorLabel"
+                   FontFamily="monospace"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

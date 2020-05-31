@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PractiCode.Models;
+using PractiCode.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,16 @@ namespace PractiCode.Views.JavaScript
         public JavaScriptInterpreter()
         {
             InitializeComponent();
+        }
+
+        void OnRunButtonClicked(object sender, EventArgs e)
+        {
+            CodeRunner.ProcessRemoteCode(JavaScriptInterpreterTextEditor, JavaScriptInterpreterOutputLabel, JavaScriptInterpreterErrorLabel, (int)MenuItemType.JavaScript, JavaScriptInterpreterTextEditor.Text, string.Empty, string.Empty);
+        }
+
+        public void OnClearButtonClicked(object sender, EventArgs e)
+        {
+            JavaScriptInterpreterTextEditor.Text = string.Empty;
         }
     }
 }
