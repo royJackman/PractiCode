@@ -20,24 +20,9 @@ namespace PractiCode.Views.Java
             InitializeComponent();
         }
 
-        async void OnRunButtonClicked(object sender, EventArgs e)
+        void OnRunButtonClicked(object sender, EventArgs e)
         {
-            Dictionary<string, object> retval = await CodeRunner.ExecuteCodeRemotely((int)MenuItemType.Java, "class Rextester {public static void main(String[] args){" + JavaInterpreterTextEditor.Text + "}}", string.Empty, string.Empty);
-            try
-            {
-                if ((string)retval["Errors"] == string.Empty)
-                {
-                    Console.WriteLine(retval["Errors"]);
-                } 
-                else
-                {
-                    JavaInterpreterOutputLabel.Text = retval["Result"].ToString();
-                }
-            }
-            catch(Exception Ex)
-            {
-                Console.WriteLine(Ex.Message);
-            }
+            CodeRunner.ProcessRemoteCode(JavaInterpreterTextEditor, JavaInterpreterOutputLabel, JavaInterpreterErrorLabel, (int)MenuItemType.Java, "class Rextester {public static void main(String[] args){" + JavaInterpreterTextEditor.Text + "}}", string.Empty, string.Empty);
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)

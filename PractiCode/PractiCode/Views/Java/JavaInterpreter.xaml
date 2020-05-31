@@ -26,6 +26,8 @@
             <Label x:Name="JavaInterpreterOutputLabel" 
                    Text="No output yet"
                    FontFamily="monospace"/>
+            <Label x:Name="JavaInterpreterErrorLabel"
+                   FontFamily="monospace"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

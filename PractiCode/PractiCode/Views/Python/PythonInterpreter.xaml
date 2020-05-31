@@ -26,6 +26,8 @@
             <Label x:Name="PythonInterpreterOutputLabel" 
                    Text="No output yet"
                    FontFamily="monospace"/>
+            <Label x:Name="PythonInterpreterErrorLabel"
+                   FontFamily="monospace"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

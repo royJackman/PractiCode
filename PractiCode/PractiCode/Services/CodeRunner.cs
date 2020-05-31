@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace PractiCode.Services
 {
@@ -44,6 +45,22 @@ namespace PractiCode.Services
             var response = await client.PostAsync(RextesterUrl, content);
             var responseString = await response.Content.ReadAsStringAsync();
             return await Task.FromResult(JsonConvert.DeserializeObject<Dictionary<string, object>>(responseString));
+        }
+
+        public static async void ProcessRemoteCode(Editor CodeEditor, Label OutputLabel, Label ErrorLabel, int LanguageChoice, string Program, string Input, string CompilerArgs)
+        {
+            ErrorLabel.Text = string.Empty;
+            OutputLabel.Text = string.Empty;
+            Dictionary<string, object> retval = await ExecuteCodeRemotely(LanguageChoice, Program, Input, CompilerArgs);
+            try
+            {
+                ErrorLabel.Text = (string)retval["Errors"];
+                OutputLabel.Text = retval["Result"].ToString();
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
+            }
         }
     }
 }
