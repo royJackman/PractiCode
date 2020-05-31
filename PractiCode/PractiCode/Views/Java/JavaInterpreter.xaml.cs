@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using PractiCode.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,26 @@ namespace PractiCode.Views.Java
         public JavaInterpreter()
         {
             InitializeComponent();
+        }
+
+        async void OnRunButtonClicked(object sender, EventArgs e)
+        {
+            Dictionary<string, object> retval = await CodeRunner.ExexuteCodeRemotely(JavaInterpreterTextEditor.Text, "JAVA", false, 5);
+            try
+            {
+                var valDict = (JObject)retval["run_status"];
+                var decodedDict = valDict.ToObject<Dictionary<string, object>>();
+                JavaInterpreterOutputLabel.Text = decodedDict["output"].ToString();
+            }
+            catch(Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
+            }
+        }
+
+        public void OnClearButtonClicked(object sender, EventArgs e)
+        {
+            JavaInterpreterOutputLabel.Text = string.Empty;
         }
     }
 }
