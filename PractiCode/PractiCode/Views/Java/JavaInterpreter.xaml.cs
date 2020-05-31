@@ -21,12 +21,17 @@ namespace PractiCode.Views.Java
 
         async void OnRunButtonClicked(object sender, EventArgs e)
         {
-            Dictionary<string, object> retval = await CodeRunner.ExexuteCodeRemotely(JavaInterpreterTextEditor.Text, "JAVA", false, 5);
+            Dictionary<string, object> retval = await CodeRunner.ExecuteCodeRemotely(4, "class Rextester {public static void main(String[] args){" + JavaInterpreterTextEditor.Text + "}}", string.Empty, string.Empty);
             try
             {
-                var valDict = (JObject)retval["run_status"];
-                var decodedDict = valDict.ToObject<Dictionary<string, object>>();
-                JavaInterpreterOutputLabel.Text = decodedDict["output"].ToString();
+                if ((string)retval["Errors"] == string.Empty)
+                {
+                    Console.WriteLine(retval["Errors"]);
+                } 
+                else
+                {
+                    JavaInterpreterOutputLabel.Text = retval["Result"].ToString();
+                }
             }
             catch(Exception Ex)
             {
