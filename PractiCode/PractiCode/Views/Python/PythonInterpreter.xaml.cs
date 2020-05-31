@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PractiCode.Models;
+using PractiCode.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +19,29 @@ namespace PractiCode.Views.Python
             InitializeComponent();
         }
 
-        public void OnRunButtonClicked(object sender, EventArgs e)
+        async void OnRunButtonClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("Run my code");
+            Dictionary<string, object> retval = await CodeRunner.ExecuteCodeRemotely((int)MenuItemType.Python3, PythonInterpreterTextEditor.Text, string.Empty, string.Empty);
+            try
+            {
+                if ((string)retval["Errors"] == string.Empty)
+                {
+                    Console.WriteLine(retval["Errors"]);
+                }
+                else
+                {
+                    PythonInterpreterOutputLabel.Text = retval["Result"].ToString();
+                }
+            }
+            catch(Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
+            }
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)
         {
-            PyterpreterTextEntry.Text = string.Empty;
+            PythonInterpreterTextEditor.Text = string.Empty;
         }
     }
 }

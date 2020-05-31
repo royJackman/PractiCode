@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using PractiCode.Models;
 
 namespace PractiCode.Views.Java
 {
@@ -21,7 +22,7 @@ namespace PractiCode.Views.Java
 
         async void OnRunButtonClicked(object sender, EventArgs e)
         {
-            Dictionary<string, object> retval = await CodeRunner.ExecuteCodeRemotely(4, "class Rextester {public static void main(String[] args){" + JavaInterpreterTextEditor.Text + "}}", string.Empty, string.Empty);
+            Dictionary<string, object> retval = await CodeRunner.ExecuteCodeRemotely((int)MenuItemType.Java, "class Rextester {public static void main(String[] args){" + JavaInterpreterTextEditor.Text + "}}", string.Empty, string.Empty);
             try
             {
                 if ((string)retval["Errors"] == string.Empty)

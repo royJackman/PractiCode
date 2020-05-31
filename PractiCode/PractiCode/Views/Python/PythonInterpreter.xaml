@@ -8,15 +8,24 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Python Interpreter"
-                VerticalOptions="Center" 
-                HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand" 
                    FontSize="Large"/>
-            <Entry x:Name="PyterpreterTextEntry" 
-                   Placeholder="Your code here!"
-                   HeightRequest="300"
-                   BackgroundColor="{StaticResource SelectedPrimary}"/>
-            <Button Text="Run" Clicked="OnRunButtonClicked"/>
-            <Button Text="Clear" Clicked="OnClearButtonClicked"/>
+            <Editor x:Name="PythonInterpreterTextEditor" 
+                    Placeholder="Your code here!"
+                    HeightRequest="200"
+                    BackgroundColor="{StaticResource SelectedPrimary}"
+                    FontFamily="monospace"
+                    IsSpellCheckEnabled="False"
+                    IsTextPredictionEnabled="False"/>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
+                <Button Text="Run" Clicked="OnRunButtonClicked"/>
+                <Button Text="Clear" Clicked="OnClearButtonClicked"/>
+            </StackLayout>
+            <Label x:Name="PythonInterpreterOutputLabel" 
+                   Text="No output yet"
+                   FontFamily="monospace"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
