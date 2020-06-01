@@ -1,9 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:PractiCode.Views.Python;assembly=PractiCode" 
-             x:Class="PractiCode.Views.Python.PythonMain"
-             Title="Python">
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:PractiCode.Views.Python;assembly=PractiCode"
+            xmlns:controls="clr-namespace:PractiCode.Controls"
+            x:Class="PractiCode.Views.Python.PythonMain"
+            Title="Python"
+            BarBackgroundColor="{StaticResource PythonBlue}"
+            BarTextColor="{StaticResource PythonYellow}">
+
+    <NavigationPage.TitleView>
+        <controls:LanguageNavbarView LanguageNavbarName="Python"
+                                     LanguageNavbarVersion="v3.8.11"
+                                     LanguageNavbarTextColor="Yellow"
+                                     LanguageNavbarImage="python.png"/>
+    </NavigationPage.TitleView>
     <local:PythonInterpreter Title="Interpreter"/>
     <local:PythonExamples Title="Examples"/>
 </TabbedPage>

@@ -12,6 +12,8 @@
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Color x:Key="BackgroundPrimary">#393e46</Color>
             <Color x:Key="SelectedPrimary">#4b545b</Color>
+            <Color x:Key="PythonBlue">#306998</Color>
+            <Color x:Key="PythonYellow">#FFE873</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
