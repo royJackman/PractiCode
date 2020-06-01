@@ -21,11 +21,11 @@ namespace PractiCode.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.Python, Title="Python" },
-                new HomeMenuItem {Id = MenuItemType.CSharp, Title="C#" },
-                new HomeMenuItem {Id = MenuItemType.Java, Title="Java" },
-                new HomeMenuItem {Id = MenuItemType.JavaScript, Title="JavaScript" }
+                new HomeMenuItem {Id = Languages.Browse, Title="Browse" },
+                new HomeMenuItem {Id = Languages.Python, Title="Python" },
+                new HomeMenuItem {Id = Languages.CSharp, Title="C#" },
+                new HomeMenuItem {Id = Languages.Java, Title="Java" },
+                new HomeMenuItem {Id = Languages.JavaScript, Title="JavaScript" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

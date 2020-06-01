@@ -21,7 +21,7 @@ namespace PractiCode.Views.JavaScript
 
         void OnRunButtonClicked(object sender, EventArgs e)
         {
-            CodeRunner.ProcessRemoteCode(JavaScriptInterpreterTextEditor, JavaScriptInterpreterOutputLabel, JavaScriptInterpreterErrorLabel, (int)MenuItemType.JavaScript, JavaScriptInterpreterTextEditor.Text, string.Empty, string.Empty);
+            CodeRunner.ProcessRemoteCode(JavaScriptInterpreterTextEditor, JavaScriptInterpreterOutputLabel, JavaScriptInterpreterErrorLabel, (int)Languages.JavaScript, JavaScriptInterpreterTextEditor.Text, string.Empty, string.Empty);
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)

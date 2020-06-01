@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PractiCode.Models
 {
-    public enum MenuItemType
+    public enum Languages
     {
         Browse,
         CSharp,
@@ -57,7 +57,7 @@ namespace PractiCode.Models
     }
     public class HomeMenuItem
     {
-        public MenuItemType Id { get; set; }
+        public Languages Id { get; set; }
 
         public string Title { get; set; }
     }

@@ -5,5 +5,5 @@
              x:Class="PractiCode.Views.Python.PythonMain"
              Title="Python">
     <local:PythonInterpreter Title="Interpreter"/>
-    <local:PythonInterpreter Title="twopreter"/>
+    <local:PythonExamples Title="Examples"/>
 </TabbedPage>

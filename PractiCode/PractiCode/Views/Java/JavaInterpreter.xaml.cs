@@ -22,7 +22,7 @@ namespace PractiCode.Views.Java
 
         void OnRunButtonClicked(object sender, EventArgs e)
         {
-            CodeRunner.ProcessRemoteCode(JavaInterpreterTextEditor, JavaInterpreterOutputLabel, JavaInterpreterErrorLabel, (int)MenuItemType.Java, "class Rextester {public static void main(String[] args){" + JavaInterpreterTextEditor.Text + "}}", string.Empty, string.Empty);
+            CodeRunner.ProcessRemoteCode(JavaInterpreterTextEditor, JavaInterpreterOutputLabel, JavaInterpreterErrorLabel, (int)Languages.Java, "class Rextester {public static void main(String[] args){" + JavaInterpreterTextEditor.Text + "}}", string.Empty, string.Empty);
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)

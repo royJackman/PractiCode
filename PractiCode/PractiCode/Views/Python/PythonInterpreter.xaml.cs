@@ -21,7 +21,7 @@ namespace PractiCode.Views.Python
 
         void OnRunButtonClicked(object sender, EventArgs e)
         {
-            CodeRunner.ProcessRemoteCode(PythonInterpreterTextEditor, PythonInterpreterOutputLabel, PythonInterpreterErrorLabel, (int)MenuItemType.Python3, PythonInterpreterTextEditor.Text, string.Empty, string.Empty);
+            CodeRunner.ProcessRemoteCode(PythonInterpreterTextEditor, PythonInterpreterOutputLabel, PythonInterpreterErrorLabel, (int)Languages.Python3, PythonInterpreterTextEditor.Text, string.Empty, string.Empty);
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)

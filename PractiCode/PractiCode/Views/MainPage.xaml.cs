@@ -26,7 +26,7 @@ namespace PractiCode.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)Languages.Browse, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -35,19 +35,19 @@ namespace PractiCode.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
+                    case (int)Languages.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    case (int)MenuItemType.Python:
+                    case (int)Languages.Python:
                         MenuPages.Add(id, new NavigationPage(new PythonMain()));
                         break;
-                    case (int)MenuItemType.CSharp:
+                    case (int)Languages.CSharp:
                         MenuPages.Add(id, new NavigationPage(new CSharpMain()));
                         break;
-                    case (int)MenuItemType.Java:
+                    case (int)Languages.Java:
                         MenuPages.Add(id, new NavigationPage(new JavaMain()));
                         break;
-                    case (int)MenuItemType.JavaScript:
+                    case (int)Languages.JavaScript:
                         MenuPages.Add(id, new NavigationPage(new JavaScriptMain()));
                         break;
                 }

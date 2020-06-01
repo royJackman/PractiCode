@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:PractiCode.Controls"
+             mc:Ignorable="d"
+             x:Class="PractiCode.Views.Python.PythonExamples"
+             Title="Examples"
+             Padding="10">
+    <ScrollView>
+        <StackLayout HorizontalOptions="Fill">
+            <controls:CodeExampleView CodeExampleTitle="Hello World"
+                                      CodeExampleSource="print('Hello, World!')"
+                                      CodeExampleDescription="Printing a message to standard output"/>
+            <controls:CodeExampleView CodeExampleTitle="Defining a function"
+                                      CodeExampleSource="def myFunction(input1, input2):&#x0a;&#x09;return input1+input2"
+                                      CodeExampleDescription="Defining a function for later use"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
