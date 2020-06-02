@@ -21,12 +21,15 @@ namespace PractiCode.Views.Python
 
         public void OnRunButtonClicked(object sender, EventArgs e)
         {
-            CodeRunner.ProcessRemoteCode(PythonInterpreterTextEditor, PythonInterpreterOutputLabel, PythonInterpreterErrorLabel, (int)Languages.Python3, PythonInterpreterTextEditor.Text, string.Empty, string.Empty);
+            var editor = (Editor)Interpreter.FindByName("InterpreterTextEditor");
+            var output = (Label)Interpreter.FindByName("InterpreterOutputLabel");
+            var error = (Label)Interpreter.FindByName("InterpreterErrorLabel");
+            CodeRunner.ProcessRemoteCode(editor, output, error, (int)Languages.Python3, editor.Text, string.Empty, string.Empty);
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)
         {
-            PythonInterpreterTextEditor.Text = string.Empty;
+            ((Editor)Interpreter.FindByName("InterpreterTextEditor")).Text = string.Empty;
         }
     }
 }

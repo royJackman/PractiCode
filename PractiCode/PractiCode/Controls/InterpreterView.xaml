@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="this"
+             x:Class="PractiCode.Controls.InterpreterView">
+    <ScrollView BindingContext="{x:Reference this}">
+        <StackLayout>
+            <Frame BackgroundColor="{StaticResource SelectedPrimary}"
+                   CornerRadius="5"
+                   Padding="8"
+                   Margin="8"
+                   HeightRequest="300">
+                <Editor x:Name="InterpreterTextEditor" 
+                        Placeholder="{Binding InterpreterEditorPlaceholder}"
+                        BackgroundColor="{StaticResource SelectedPrimary}"
+                        FontFamily="monospace"
+                        IsSpellCheckEnabled="False"
+                        IsTextPredictionEnabled="False"
+                        AutoSize="TextChanges"/>
+            </Frame>
+            <Label Text="Output:"/>
+            <Label x:Name="InterpreterOutputLabel" 
+                   FontFamily="monospace"
+                   FontSize="Large"
+                   BackgroundColor="{StaticResource SelectedPrimary}"/>
+            <Label Text="Error:"/>
+            <Label x:Name="InterpreterErrorLabel"
+                   FontFamily="monospace"
+                   FontSize="Large"
+                   BackgroundColor="{StaticResource SelectedPrimary}"/>
+        </StackLayout>
+    </ScrollView>
+</ContentView>
