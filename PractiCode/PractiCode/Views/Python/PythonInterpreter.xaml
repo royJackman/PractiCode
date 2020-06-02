@@ -4,30 +4,40 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="PractiCode.Views.Python.PythonInterpreter">
+             x:Class="PractiCode.Views.Python.PythonInterpreter"
+             Title="Interpreter">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Python Interpreter"
-                   VerticalOptions="Center" 
-                   HorizontalOptions="CenterAndExpand" 
-                   FontSize="Large"/>
-            <Editor x:Name="PythonInterpreterTextEditor" 
-                    Placeholder="Your code here!"
-                    HeightRequest="200"
-                    BackgroundColor="{StaticResource SelectedPrimary}"
-                    FontFamily="monospace"
-                    IsSpellCheckEnabled="False"
-                    IsTextPredictionEnabled="False"/>
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="FillAndExpand">
-                <Button Text="Run" Clicked="OnRunButtonClicked"/>
-                <Button Text="Clear" Clicked="OnClearButtonClicked"/>
+        <ScrollView>
+            <StackLayout>
+                <Frame BackgroundColor="{StaticResource SelectedPrimary}"
+                       CornerRadius="5"
+                       Padding="8"
+                       Margin="8"
+                       HeightRequest="300">
+                       <Editor x:Name="PythonInterpreterTextEditor" 
+                               Placeholder="Your code here!"
+                               BackgroundColor="{StaticResource SelectedPrimary}"
+                               FontFamily="monospace"
+                               IsSpellCheckEnabled="False"
+                               IsTextPredictionEnabled="False"
+                               AutoSize="TextChanges"/>
+                </Frame>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand">
+                    <Button Text="Run" Clicked="OnRunButtonClicked"/>
+                    <Button Text="Clear" Clicked="OnClearButtonClicked"/>
+                </StackLayout>
+                <Label Text="Output:"/>
+                <Label x:Name="PythonInterpreterOutputLabel" 
+                       FontFamily="monospace"
+                       FontSize="Large"
+                       BackgroundColor="{StaticResource SelectedPrimary}"/>
+                <Label Text="Error:"/>
+                <Label x:Name="PythonInterpreterErrorLabel"
+                       FontFamily="monospace"
+                       FontSize="Large"
+                       BackgroundColor="{StaticResource SelectedPrimary}"/>
             </StackLayout>
-            <Label x:Name="PythonInterpreterOutputLabel" 
-                   Text="No output yet"
-                   FontFamily="monospace"/>
-            <Label x:Name="PythonInterpreterErrorLabel"
-                   FontFamily="monospace"/>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
