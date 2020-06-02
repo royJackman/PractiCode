@@ -39,7 +39,10 @@ namespace PractiCode.Views
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
                     case (int)Languages.Python:
-                        MenuPages.Add(id, new NavigationPage(new PythonMain()));
+                        var Target = new NavigationPage(new PythonMain());
+                        Target.BarBackgroundColor = (Color)Application.Current.Resources["PythonBlue"];
+                        Target.BarTextColor = (Color)Application.Current.Resources["PythonYellow"];
+                        MenuPages.Add(id, Target);
                         break;
                     case (int)Languages.CSharp:
                         MenuPages.Add(id, new NavigationPage(new CSharpMain()));

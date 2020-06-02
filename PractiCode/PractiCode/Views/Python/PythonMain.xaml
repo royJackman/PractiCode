@@ -11,7 +11,7 @@
     <NavigationPage.TitleView>
         <controls:LanguageNavbarView LanguageNavbarName="Python"
                                      LanguageNavbarVersion="v3.8.11"
-                                     LanguageNavbarTextColor="Yellow"
+                                     LanguageNavbarTextColor="{StaticResource PythonYellow}"
                                      LanguageNavbarImage="python.png"/>
     </NavigationPage.TitleView>
     <local:PythonInterpreter Title="Interpreter"/>

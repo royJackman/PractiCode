@@ -14,7 +14,7 @@ namespace PractiCode.Controls
     {
         public static readonly BindableProperty LanguageNavbarNameProperty = BindableProperty.Create(nameof(LanguageNavbarName), typeof(string), typeof(LanguageNavbarView), string.Empty);
         public static readonly BindableProperty LanguageNavbarVersionProperty = BindableProperty.Create(nameof(LanguageNavbarVersion), typeof(string), typeof(LanguageNavbarView), string.Empty);
-        public static readonly BindableProperty LanguageNavbarTextColorProperty = BindableProperty.Create(nameof(LanguageNavbarTextColor), typeof(string), typeof(LanguageNavbarView), "White");
+        public static readonly BindableProperty LanguageNavbarTextColorProperty = BindableProperty.Create(nameof(LanguageNavbarTextColor), typeof(Color), typeof(LanguageNavbarView), Color.White);
         public static readonly BindableProperty LanguageNavbarImageProperty = BindableProperty.Create(nameof(LanguageNavbarImage), typeof(string), typeof(LanguageNavbarView), string.Empty);
 
 
@@ -30,9 +30,9 @@ namespace PractiCode.Controls
             set => SetValue(LanguageNavbarView.LanguageNavbarVersionProperty, value);
         }
 
-        public string LanguageNavbarTextColor
+        public Color LanguageNavbarTextColor
         {
-            get => (string)GetValue(LanguageNavbarView.LanguageNavbarTextColorProperty);
+            get => (Color)GetValue(LanguageNavbarView.LanguageNavbarTextColorProperty);
             set => SetValue(LanguageNavbarView.LanguageNavbarTextColorProperty, value);
         }
 

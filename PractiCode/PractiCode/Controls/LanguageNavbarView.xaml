@@ -15,8 +15,9 @@
         </Grid.ColumnDefinitions>
         <Label Text="{Binding LanguageNavbarName}"
                TextColor="{Binding LanguageNavbarTextColor}"
-               FontSize="30"
+               FontSize="40"
                FontAttributes="Bold"
+               FontFamily="monospace"
                Grid.Column="0"
                HorizontalTextAlignment="Start"
                VerticalTextAlignment="Center"/>
@@ -24,8 +25,9 @@
                TextColor="{Binding LanguageNavbarTextColor}"
                FontSize="20"
                FontAttributes="Bold"
+               FontFamily="monospace"
                Grid.Column="1"
-               HorizontalTextAlignment="Center"
+               HorizontalTextAlignment="End"
                VerticalTextAlignment="End"/>
         <Image Source="{Binding LanguageNavbarImage}"
                Aspect="AspectFit"
