@@ -12,14 +12,14 @@ using Xamarin.Forms.Xaml;
 namespace PractiCode.Views.Python
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PythonInterpreter : ContentPage
+    public partial class PythonInterpreter : ContentPage, IInterpreter
     {
         public PythonInterpreter()
         {
             InitializeComponent();
         }
 
-        void OnRunButtonClicked(object sender, EventArgs e)
+        public void OnRunButtonClicked(object sender, EventArgs e)
         {
             CodeRunner.ProcessRemoteCode(PythonInterpreterTextEditor, PythonInterpreterOutputLabel, PythonInterpreterErrorLabel, (int)Languages.Python3, PythonInterpreterTextEditor.Text, string.Empty, string.Empty);
         }
