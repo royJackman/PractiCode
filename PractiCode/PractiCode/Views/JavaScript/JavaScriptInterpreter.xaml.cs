@@ -12,21 +12,29 @@ using Xamarin.Forms.Xaml;
 namespace PractiCode.Views.JavaScript
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class JavaScriptInterpreter : ContentPage
+    public partial class JavaScriptInterpreter : ContentPage, IInterpreter
     {
         public JavaScriptInterpreter()
         {
             InitializeComponent();
         }
 
-        void OnRunButtonClicked(object sender, EventArgs e)
+        public void OnRunButtonClicked(object sender, EventArgs e)
         {
-            CodeRunner.ProcessRemoteCode(JavaScriptInterpreterTextEditor, JavaScriptInterpreterOutputLabel, JavaScriptInterpreterErrorLabel, (int)Languages.JavaScript, JavaScriptInterpreterTextEditor.Text, string.Empty, string.Empty);
+            var editor = (Editor)Interpreter.FindByName("InterpreterTextEditor");
+            var output = (Label)Interpreter.FindByName("InterpreterOutputLabel");
+            var error = (Label)Interpreter.FindByName("InterpreterErrorLabel");
+            CodeRunner.ProcessRemoteCode(editor, output, error, (int)Languages.JavaScript, editor.Text, string.Empty, string.Empty);
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)
         {
-            JavaScriptInterpreterTextEditor.Text = string.Empty;
+            ((Editor)Interpreter.FindByName("InterpreterTextEditor")).Text = string.Empty;
+        }
+
+        public void SetSource(string source)
+        {
+            ((Editor)Interpreter.FindByName("InterpreterTextEditor")).Text = source;
         }
     }
 }

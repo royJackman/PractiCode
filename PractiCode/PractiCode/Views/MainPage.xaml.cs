@@ -39,10 +39,10 @@ namespace PractiCode.Views
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
                     case (int)Languages.Python:
-                        var Target = new NavigationPage(new PythonMain());
-                        Target.BarBackgroundColor = (Color)Application.Current.Resources["PythonBlue"];
-                        Target.BarTextColor = (Color)Application.Current.Resources["PythonYellow"];
-                        MenuPages.Add(id, Target);
+                        var py = new NavigationPage(new PythonMain());
+                        py.BarBackgroundColor = (Color)Application.Current.Resources["PythonBlue"];
+                        py.BarTextColor = (Color)Application.Current.Resources["PythonYellow"];
+                        MenuPages.Add(id, py);
                         break;
                     case (int)Languages.CSharp:
                         MenuPages.Add(id, new NavigationPage(new CSharpMain()));
@@ -51,7 +51,10 @@ namespace PractiCode.Views
                         MenuPages.Add(id, new NavigationPage(new JavaMain()));
                         break;
                     case (int)Languages.JavaScript:
-                        MenuPages.Add(id, new NavigationPage(new JavaScriptMain()));
+                        var js = new NavigationPage(new JavaScriptMain());
+                        js.BarBackgroundColor = (Color)Application.Current.Resources["JavaScriptYellow"];
+                        js.BarTextColor = (Color)Application.Current.Resources["JavaScriptBlack"];
+                        MenuPages.Add(id, js);
                         break;
                 }
             }

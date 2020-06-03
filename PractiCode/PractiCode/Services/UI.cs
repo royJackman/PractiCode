@@ -18,7 +18,9 @@ namespace PractiCode.Services
             title,
             description,
             python,
-            javascript
+            javascript,
+            csharp,
+            java
         }
 
         public static void ChangeNavbarColor(Color color)
