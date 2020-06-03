@@ -11,7 +11,7 @@ namespace PractiCode.Views.Python
         public PythonExamples()
         {
             InitializeComponent();
-            UI.LoadExamples("python", ExampleStack);
+            UI.LoadExamples((int)UI.ExamplesEncoding.python, ExampleStack);
         }
     }
 }

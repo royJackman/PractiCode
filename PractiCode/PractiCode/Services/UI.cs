@@ -12,12 +12,21 @@ namespace PractiCode.Services
 {
     static class UI
     {
+        public enum ExamplesEncoding
+        {
+            empty,
+            title,
+            description,
+            python,
+            javascript
+        }
+
         public static void ChangeNavbarColor(Color color)
         {
             ((NavigationPage)((MasterDetailPage)Application.Current.MainPage).Detail).BarBackgroundColor = color;
         }
 
-        public static void LoadExamples(string language, StackLayout stack)
+        public static void LoadExamples(int language, StackLayout stack)
         {
             var assembly = Assembly.GetExecutingAssembly();
 
@@ -27,15 +36,15 @@ namespace PractiCode.Services
 
             Stream fileStream = assembly.GetManifestResourceStream(assembly.GetManifestResourceNames().Single(str => str.EndsWith("CodeExamples.xlsx")));
             IWorkbook workbook = application.Workbooks.Open(fileStream);
-            IWorksheet worksheet = workbook.Worksheets[language];
+            IWorksheet worksheet = workbook.Worksheets["Sheet1"];
 
             for (var i = 1; i <= worksheet.Rows.Length; i++)
             {
                 var tempView = new CodeExampleView();
 
-                tempView.CodeExampleTitle = worksheet[i, 1].Text;
-                tempView.CodeExampleSource = worksheet[i, 2].Text;
-                tempView.CodeExampleDescription = worksheet[i, 3].Text;
+                tempView.CodeExampleTitle = worksheet[i, (int)ExamplesEncoding.title].Text;
+                tempView.CodeExampleSource = worksheet[i, language].Text;
+                tempView.CodeExampleDescription = worksheet[i, (int)ExamplesEncoding.description].Text;
 
                 stack.Children.Add(tempView);
             }
