@@ -31,5 +31,10 @@ namespace PractiCode.Views.Python
         {
             ((Editor)Interpreter.FindByName("InterpreterTextEditor")).Text = string.Empty;
         }
+
+        public void SetSource(string source)
+        {
+            ((Editor)Interpreter.FindByName("InterpreterTextEditor")).Text = source;
+        }
     }
 }

@@ -15,16 +15,25 @@
          HorizontalOptions="FillAndExpand">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="35"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0"
-                   Text="{Binding CodeExampleTitle}"
-                   FontAttributes="Bold"
-                   FontSize="28"
-                   VerticalTextAlignment="Center"
-                   HorizontalTextAlignment="Start"/>
+            <StackLayout Orientation="Horizontal"
+                         Grid.Row="0"
+                         Spacing="0">
+                <Label Text="{Binding CodeExampleTitle}"
+                       FontAttributes="Bold"
+                       FontSize="28"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Start"/>
+                <Button Text="Try me!"
+                        BackgroundColor="{StaticResource SelectedPrimary}"
+                        TextColor="White"
+                        CornerRadius="3"
+                        HorizontalOptions="EndAndExpand"
+                        Clicked="SendToInterpreter"/>
+            </StackLayout>
             <Frame Grid.Row="1"
                    BackgroundColor="NavajoWhite"
                    CornerRadius="3"

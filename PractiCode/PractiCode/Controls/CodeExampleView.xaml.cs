@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PractiCode.Services;
+using PractiCode.Views.Python;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -34,6 +36,13 @@ namespace PractiCode.Controls
         {
             get => (string)GetValue(CodeExampleView.CodeExampleSourceProperty);
             set => SetValue(CodeExampleView.CodeExampleSourceProperty, value);
+        }
+
+        public void SendToInterpreter(object sender, EventArgs e)
+        {
+            var parent = this.Parent.Parent.Parent.Parent as TabbedPage;
+            parent.CurrentPage = parent.Children[0];
+            ((IInterpreter)parent.Children[0]).SetSource(this.CodeExampleSource);
         }
 
         public CodeExampleView()

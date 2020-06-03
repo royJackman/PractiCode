@@ -9,5 +9,7 @@ namespace PractiCode.Services
         void OnRunButtonClicked(object sender, EventArgs e);
 
         void OnClearButtonClicked(object sender, EventArgs e);
+
+        void SetSource(string source);
     }
 }
