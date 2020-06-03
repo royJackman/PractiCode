@@ -9,13 +9,6 @@
              Title="Examples"
              Padding="10">
     <ScrollView>
-        <StackLayout HorizontalOptions="Fill">
-            <controls:CodeExampleView CodeExampleTitle="Hello World"
-                                      CodeExampleSource="print('Hello, World!')"
-                                      CodeExampleDescription="Printing a message to standard output"/>
-            <controls:CodeExampleView CodeExampleTitle="Defining a function"
-                                      CodeExampleSource="def myFunction(input1, input2):&#x0a;&#x09;return input1+input2"
-                                      CodeExampleDescription="Defining a function for later use"/>
-        </StackLayout>
+        <StackLayout HorizontalOptions="Fill" x:Name="ExampleStack"/>
     </ScrollView>
 </ContentPage>

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PractiCode.Services;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,6 +11,7 @@ namespace PractiCode.Views.Python
         public PythonExamples()
         {
             InitializeComponent();
+            UI.LoadExamples("python", ExampleStack);
         }
     }
 }

@@ -10,7 +10,7 @@
 
     <NavigationPage.TitleView>
         <controls:LanguageNavbarView LanguageNavbarName="Python"
-                                     LanguageNavbarVersion="v3.8.11"
+                                     LanguageNavbarVersion="v3.8.3"
                                      LanguageNavbarTextColor="{StaticResource PythonYellow}"
                                      LanguageNavbarImage="python.png"/>
     </NavigationPage.TitleView>
