@@ -19,6 +19,9 @@
             <Color x:Key="JavaScriptText">#323330</Color>
             <Color x:Key="CSharpPrimary">#67217a</Color>
             <Color x:Key="CSharpText">#fefefe</Color>
+            <Color x:Key="JavaPrimary">#0d8ac7</Color>
+            <Color x:Key="JavaText">#f7ab5e</Color>
+            
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />

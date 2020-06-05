@@ -2,7 +2,17 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:PractiCode.Views.Java;assembly=PractiCode"
+            xmlns:controls="clr-namespace:PractiCode.Controls"
             x:Class="PractiCode.Views.Java.JavaMain"
-            Title="Java">
+            Title="Java"
+            BarBackgroundColor="{StaticResource JavaPrimary}"
+            BarTextColor="{StaticResource JavaText}">
+    <NavigationPage.TitleView>
+        <controls:LanguageNavbarView LanguageNavbarName="Java"
+                                     LanguageNavbarVersion="v11.0.7"
+                                     LanguageNavbarTextColor="{StaticResource JavaText}"
+                                     LanguageNavbarImage="java.png"/>
+    </NavigationPage.TitleView>
     <local:JavaInterpreter Title="Interpreter"/>
+    <local:JavaExamples Title="Examples"/>
 </TabbedPage>

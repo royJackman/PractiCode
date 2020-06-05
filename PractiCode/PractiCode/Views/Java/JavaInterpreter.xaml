@@ -3,31 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:PractiCode.Controls"
              mc:Ignorable="d"
-             x:Class="PractiCode.Views.Java.JavaInterpreter">
+             x:Class="PractiCode.Views.Java.JavaInterpreter"
+             Title="Interpreter">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Java Interpreter"
-                   VerticalOptions="Center" 
-                   HorizontalOptions="CenterAndExpand" 
-                   FontSize="Large"/>
-            <Editor x:Name="JavaInterpreterTextEditor" 
-                    Placeholder="Your code here!"
-                    HeightRequest="200"
-                    BackgroundColor="{StaticResource SelectedPrimary}"
-                    FontFamily="monospace"
-                    IsSpellCheckEnabled="False"
-                    IsTextPredictionEnabled="False"/>
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand">
-                <Button Text="Run" Clicked="OnRunButtonClicked"/>
-                <Button Text="Clear" Clicked="OnClearButtonClicked"/>
+                <Button Text="Run" TextColor="Black" Clicked="OnRunButtonClicked"/>
+                <Button Text="Clear" TextColor="Black" Clicked="OnClearButtonClicked"/>
             </StackLayout>
-            <Label x:Name="JavaInterpreterOutputLabel" 
-                   Text="No output yet"
-                   FontFamily="monospace"/>
-            <Label x:Name="JavaInterpreterErrorLabel"
-                   FontFamily="monospace"/>
+            <controls:InterpreterView x:Name="Interpreter" InterpreterEditorPlaceholder="Java code goes here!"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
