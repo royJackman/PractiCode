@@ -40,20 +40,23 @@ namespace PractiCode.Views
                         break;
                     case (int)Languages.Python:
                         var py = new NavigationPage(new PythonMain());
-                        py.BarBackgroundColor = (Color)Application.Current.Resources["PythonBlue"];
-                        py.BarTextColor = (Color)Application.Current.Resources["PythonYellow"];
+                        py.BarBackgroundColor = (Color)Application.Current.Resources["PythonPrimary"];
+                        py.BarTextColor = (Color)Application.Current.Resources["PythonText"];
                         MenuPages.Add(id, py);
                         break;
                     case (int)Languages.CSharp:
-                        MenuPages.Add(id, new NavigationPage(new CSharpMain()));
+                        var cs = new NavigationPage(new CSharpMain());
+                        cs.BarBackgroundColor = (Color)Application.Current.Resources["CSharpPrimary"];
+                        cs.BarTextColor = (Color)Application.Current.Resources["CSharpText"];
+                        MenuPages.Add(id, cs);
                         break;
                     case (int)Languages.Java:
                         MenuPages.Add(id, new NavigationPage(new JavaMain()));
                         break;
                     case (int)Languages.JavaScript:
                         var js = new NavigationPage(new JavaScriptMain());
-                        js.BarBackgroundColor = (Color)Application.Current.Resources["JavaScriptYellow"];
-                        js.BarTextColor = (Color)Application.Current.Resources["JavaScriptBlack"];
+                        js.BarBackgroundColor = (Color)Application.Current.Resources["JavaScriptPrimary"];
+                        js.BarTextColor = (Color)Application.Current.Resources["JavaScriptText"];
                         MenuPages.Add(id, js);
                         break;
                 }

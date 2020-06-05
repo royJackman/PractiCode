@@ -5,13 +5,13 @@
             xmlns:controls="clr-namespace:PractiCode.Controls"
             x:Class="PractiCode.Views.Python.PythonMain"
             Title="Python"
-            BarBackgroundColor="{StaticResource PythonBlue}"
-            BarTextColor="{StaticResource PythonYellow}">
+            BarBackgroundColor="{StaticResource PythonPrimary}"
+            BarTextColor="{StaticResource PythonText}">
 
     <NavigationPage.TitleView>
         <controls:LanguageNavbarView LanguageNavbarName="Python"
                                      LanguageNavbarVersion="v3.8.3"
-                                     LanguageNavbarTextColor="{StaticResource PythonYellow}"
+                                     LanguageNavbarTextColor="{StaticResource PythonText}"
                                      LanguageNavbarImage="python.png"/>
     </NavigationPage.TitleView>
     <local:PythonInterpreter Title="Interpreter"/>

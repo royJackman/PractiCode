@@ -5,12 +5,12 @@
             xmlns:controls="clr-namespace:PractiCode.Controls"
             x:Class="PractiCode.Views.JavaScript.JavaScriptMain"
             Title="JavaScript"
-            BarBackgroundColor="{StaticResource JavaScriptYellow}"
-            BarTextColor="{StaticResource JavaScriptBlack}">
+            BarBackgroundColor="{StaticResource JavaScriptPrimary}"
+            BarTextColor="{StaticResource JavaScriptText}">
     <NavigationPage.TitleView>
         <controls:LanguageNavbarView LanguageNavbarName="JavaScript"
                                      LanguageNavbarVersion="v1.8.5"
-                                     LanguageNavbarTextColor="{StaticResource JavaScriptBlack}"
+                                     LanguageNavbarTextColor="{StaticResource JavaScriptText}"
                                      LanguageNavbarImage="javascript.png"/>
     </NavigationPage.TitleView>
     <local:JavaScriptInterpreter Title="Interpreter"/>
