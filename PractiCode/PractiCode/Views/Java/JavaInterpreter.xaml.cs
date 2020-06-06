@@ -18,6 +18,7 @@ namespace PractiCode.Views.Java
         public JavaInterpreter()
         {
             InitializeComponent();
+            UI.LoadLibraries((StackLayout)Interpreter.FindByName("InterpreterLibrariesStack"), Constants.JavaLibraries);
         }
 
         public void OnRunButtonClicked(object sender, EventArgs e)
@@ -25,7 +26,14 @@ namespace PractiCode.Views.Java
             var editor = (Editor)Interpreter.FindByName("InterpreterTextEditor");
             var output = (Label)Interpreter.FindByName("InterpreterOutputLabel");
             var error = (Label)Interpreter.FindByName("InterpreterErrorLabel");
-            CodeRunner.ProcessRemoteCode(editor, output, error, (int)Languages.Java, "class Rextester {public static void main(String[] args){" + editor.Text + "}}", string.Empty, string.Empty);
+            var maincode = (Editor)Interpreter.FindByName("InterpreterMainEditor");
+            var librarystack = (StackLayout)Interpreter.FindByName("InterpreterLibrariesStack");
+
+            List<string> imports = UI.GetImportsFromLibraries(librarystack);
+            imports.Add("class Rextester {");
+            string source = CodeRunner.ProgramBuilder(maincode.Text, Libraries: imports, editor.Text, "public static void main(String[] args){", "}}");
+
+            CodeRunner.ProcessRemoteCode(output, error, (int)Languages.Java, source, string.Empty, string.Empty);
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)

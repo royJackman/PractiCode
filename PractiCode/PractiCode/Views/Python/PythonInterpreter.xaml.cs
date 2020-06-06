@@ -1,4 +1,5 @@
-﻿using PractiCode.Models;
+﻿using PractiCode.Controls;
+using PractiCode.Models;
 using PractiCode.Services;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace PractiCode.Views.Python
         public PythonInterpreter()
         {
             InitializeComponent();
+            UI.LoadLibraries((StackLayout)Interpreter.FindByName("InterpreterLibrariesStack"), Constants.PythonLibraries);
         }
 
         public void OnRunButtonClicked(object sender, EventArgs e)
@@ -24,7 +26,10 @@ namespace PractiCode.Views.Python
             var editor = (Editor)Interpreter.FindByName("InterpreterTextEditor");
             var output = (Label)Interpreter.FindByName("InterpreterOutputLabel");
             var error = (Label)Interpreter.FindByName("InterpreterErrorLabel");
-            CodeRunner.ProcessRemoteCode(editor, output, error, (int)Languages.Python3, editor.Text, string.Empty, string.Empty);
+            var librarystack = (StackLayout)Interpreter.FindByName("InterpreterLibrariesStack");
+
+            string source = CodeRunner.ProgramBuilder(editor.Text, Libraries: UI.GetImportsFromLibraries(librarystack));
+            CodeRunner.ProcessRemoteCode(output, error, (int)Languages.Python3, source, string.Empty, string.Empty);
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)

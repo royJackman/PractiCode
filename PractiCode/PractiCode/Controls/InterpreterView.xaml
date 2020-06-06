@@ -8,11 +8,20 @@
              x:Class="PractiCode.Controls.InterpreterView">
     <ScrollView BindingContext="{x:Reference this}">
         <StackLayout>
+            <Label Text="Libraries:" 
+                   IsVisible="{Binding InterpreterLibraries}"/>
+            <ScrollView HeightRequest="100"
+                        IsVisible="{Binding InterpreterLibraries}">
+                <StackLayout x:Name="InterpreterLibrariesStack"
+                             BackgroundColor="{StaticResource SelectedPrimary}"
+                             Padding="7"/>
+            </ScrollView>
+            <Label Text="Source Code:"/>
             <Frame BackgroundColor="{StaticResource SelectedPrimary}"
                    CornerRadius="5"
                    Padding="8"
                    Margin="8"
-                   HeightRequest="300">
+                   HeightRequest="200">
                 <Editor x:Name="InterpreterTextEditor" 
                         Placeholder="{Binding InterpreterEditorPlaceholder}"
                         BackgroundColor="{StaticResource SelectedPrimary}"
@@ -21,6 +30,26 @@
                         IsTextPredictionEnabled="False"
                         AutoSize="TextChanges"/>
             </Frame>
+            <Label Text="Main Function:"
+                   IsVisible="{Binding InterpreterSource}"/>
+            <Label Text="{Binding InterpreterStartingString}"
+                   IsVisible="{Binding InterpreterSource}"/>
+            <Frame BackgroundColor="{StaticResource SelectedPrimary}"
+                   CornerRadius="5"
+                   Padding="8"
+                   Margin="8"
+                   HeightRequest="200"
+                   IsVisible="{Binding InterpreterSource}">
+                <Editor x:Name="InterpreterMainEditor" 
+                        Placeholder="{Binding InterpreterEditorPlaceholder}"
+                        BackgroundColor="{StaticResource SelectedPrimary}"
+                        FontFamily="monospace"
+                        IsSpellCheckEnabled="False"
+                        IsTextPredictionEnabled="False"
+                        AutoSize="TextChanges"/>
+            </Frame>
+            <Label Text="{Binding InterpreterEndingString}"
+                   IsVisible="{Binding InterpreterSource}"/>
             <Label Text="Output:"/>
             <Label x:Name="InterpreterOutputLabel" 
                    FontFamily="monospace"

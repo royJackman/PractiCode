@@ -17,13 +17,21 @@ namespace PractiCode.Views.CSharp
         public CSharpInterpreter()
         {
             InitializeComponent();
+            UI.LoadLibraries((StackLayout)Interpreter.FindByName("InterpreterLibrariesStack"), Constants.CSharpLibraries);
         }
         public void OnRunButtonClicked(object sender, EventArgs e)
         {
             var editor = (Editor)Interpreter.FindByName("InterpreterTextEditor");
             var output = (Label)Interpreter.FindByName("InterpreterOutputLabel");
             var error = (Label)Interpreter.FindByName("InterpreterErrorLabel");
-            CodeRunner.ProcessRemoteCode(editor, output, error, (int)Languages.CSharp, "using System;using System.Collections.Generic;using System.Linq;using System.Text.RegularExpressions;namespace Rextester {public class Program {public static void Main(string[] args){" + editor.Text + "}}}", string.Empty, string.Empty);
+            var maincode = (Editor)Interpreter.FindByName("InterpreterMainEditor");
+            var librarystack = (StackLayout)Interpreter.FindByName("InterpreterLibrariesStack");
+
+            List<string> imports = UI.GetImportsFromLibraries(librarystack);
+            imports.Add("namespace Rextester {public class Program {");
+            string source = CodeRunner.ProgramBuilder(maincode.Text, Libraries: imports, editor.Text, "public static void Main(string[] args) {", "}}}");
+
+            CodeRunner.ProcessRemoteCode(output, error, (int)Languages.CSharp, source, string.Empty, string.Empty);
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)

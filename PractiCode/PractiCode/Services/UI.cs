@@ -53,5 +53,21 @@ namespace PractiCode.Services
 
             fileStream.Close();
         }
+
+        public static void LoadLibraries(StackLayout LibraryStack, List<LibraryView> libraryViews)
+        {
+            foreach(LibraryView library in libraryViews)
+            {
+                LibraryStack.Children.Add(library);
+            }
+        }
+
+        public static List<string> GetImportsFromLibraries(StackLayout LibraryStack)
+        {
+            List<LibraryView> libraries = LibraryStack.Children.ToList().Cast<LibraryView>().ToList();
+            return libraries.Where(lib => lib.LibraryActivated)
+                            .Select(lib => lib.LibraryImport)
+                            .ToList();
+        }
     }
 }

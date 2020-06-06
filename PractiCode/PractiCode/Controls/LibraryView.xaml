@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="this"
+             x:Class="PractiCode.Controls.LibraryView">
+  <ContentView.Content>
+        <Grid BindingContext="{x:Reference this}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="{Binding LibraryName}"
+                   FontSize="20"
+                   FontFamily="monospace"
+                   Grid.Column="0"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+            <Switch IsToggled="{Binding LibraryActivated}"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="Center"/>
+        </Grid>
+  </ContentView.Content>
+</ContentView>

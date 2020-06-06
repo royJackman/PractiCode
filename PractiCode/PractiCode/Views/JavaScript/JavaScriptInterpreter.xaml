@@ -14,7 +14,10 @@
                 <Button Text="Run" TextColor="Black" Clicked="OnRunButtonClicked"/>
                 <Button Text="Clear" TextColor="Black" Clicked="OnClearButtonClicked"/>
             </StackLayout>
-            <controls:InterpreterView x:Name="Interpreter" InterpreterEditorPlaceholder="JavaScript code goes here!"/>
+            <controls:InterpreterView x:Name="Interpreter" 
+                                      InterpreterEditorPlaceholder="JavaScript code goes here!"
+                                      InterpreterLibraries="False"
+                                      InterpreterSource="False"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

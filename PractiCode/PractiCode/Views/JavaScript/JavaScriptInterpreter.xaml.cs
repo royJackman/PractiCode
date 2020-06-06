@@ -24,7 +24,7 @@ namespace PractiCode.Views.JavaScript
             var editor = (Editor)Interpreter.FindByName("InterpreterTextEditor");
             var output = (Label)Interpreter.FindByName("InterpreterOutputLabel");
             var error = (Label)Interpreter.FindByName("InterpreterErrorLabel");
-            CodeRunner.ProcessRemoteCode(editor, output, error, (int)Languages.JavaScript, editor.Text, string.Empty, string.Empty);
+            CodeRunner.ProcessRemoteCode(output, error, (int)Languages.JavaScript, editor.Text, string.Empty, string.Empty);
         }
 
         public void OnClearButtonClicked(object sender, EventArgs e)
