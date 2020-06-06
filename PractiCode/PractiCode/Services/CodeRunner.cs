@@ -47,7 +47,7 @@ namespace PractiCode.Services
             return await Task.FromResult(JsonConvert.DeserializeObject<Dictionary<string, object>>(responseString));
         }
 
-        public static async void ProcessRemoteCode(Editor CodeEditor, Label OutputLabel, Label ErrorLabel, int LanguageChoice, string Program, string Input, string CompilerArgs)
+        public static async void ProcessRemoteCode(Label OutputLabel, Label ErrorLabel, int LanguageChoice, string Program, string Input, string CompilerArgs)
         {
             ErrorLabel.Text = string.Empty;
             OutputLabel.Text = string.Empty;
@@ -61,6 +61,44 @@ namespace PractiCode.Services
             {
                 Console.WriteLine(Ex.Message);
             }
+        }
+
+        public static string ProgramBuilder(string MainCode, List<string> Libraries = null, string FileCode = null, string StartingString = null, string EndingString = null)
+        {
+            if (MainCode == null)
+            {
+                Console.WriteLine("Source not provided");
+                return string.Empty;
+            }
+
+            string retval = string.Empty;
+
+            if (Libraries != null)
+            {
+                foreach(string lib in Libraries)
+                {
+                    retval += lib + "\n";
+                }
+            }
+
+            if (FileCode != null)
+            {
+                retval += FileCode + "\n";
+            }
+
+            if (StartingString != null)
+            {
+                retval += StartingString + "\n";
+            }
+
+            retval += MainCode + "\n";
+
+            if (EndingString != null)
+            {
+                retval += EndingString;
+            }
+
+            return retval;
         }
     }
 }
