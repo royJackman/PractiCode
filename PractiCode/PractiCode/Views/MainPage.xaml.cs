@@ -29,7 +29,7 @@ namespace PractiCode.Views
             MenuPages.Add((int)Languages.Browse, (NavigationPage)Detail);
         }
 
-        private NavigationPage SetNavigationColor(TabbedPage Target, string Language)
+        private NavigationPage SetNavigationColor(Page Target, string Language)
         {
             var page = new NavigationPage(Target);
             page.BarBackgroundColor = (Color)Application.Current.Resources[Language + "Primary"];

@@ -22,10 +22,10 @@ namespace PractiCode.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = Languages.Browse, Title="Browse" },
-                new HomeMenuItem {Id = Languages.Python, Title="Python" },
-                new HomeMenuItem {Id = Languages.CSharp, Title="C#" },
-                new HomeMenuItem {Id = Languages.Java, Title="Java" },
-                new HomeMenuItem {Id = Languages.JavaScript, Title="JavaScript" }
+                new HomeMenuItem {Id = Languages.Python, Title="Python", Blurb="Scripting with Snakes" },
+                new HomeMenuItem {Id = Languages.CSharp, Title="C#", Blurb="A very fancy name for Java.NET" },
+                new HomeMenuItem {Id = Languages.Java, Title="Java", Blurb="Still incomprehensible after 20 years" },
+                new HomeMenuItem {Id = Languages.JavaScript, Title="JavaScript", Blurb="Light, messy, heavy, clean scripting" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
@@ -39,20 +39,6 @@ namespace PractiCode.Views
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
                 await RootPage.NavigateFromMenu(id);
             };
-        }
-
-        private void OnItemSelected(object sender, EventArgs e)
-        {
-            try
-            {
-                var list = (ListView)sender;
-                var listItem = (HomeMenuItem)list.SelectedItem;
-                NameScopeExtensions.FindByName<Grid>((Element)sender, listItem.Title).BackgroundColor = (Color)Application.Current.Resources["SelectedPrimary"];
-            } 
-            catch
-            {
-                Console.WriteLine("Could not change label color");
-            }
         }
     }
 }

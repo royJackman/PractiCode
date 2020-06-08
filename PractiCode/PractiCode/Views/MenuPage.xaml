@@ -34,7 +34,21 @@
                 <DataTemplate>
                     <ViewCell>
                         <Grid Padding="10" x:Name="{Binding Title}">
-                            <Label Text="{Binding Title}" d:Text="{Binding .}" FontSize="20"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Title}" 
+                                   d:Text="{Binding .}" 
+                                   FontSize="20"
+                                   Grid.Column="0"/>
+                            <Label Text="{Binding Blurb}"
+                                   d:Text=""
+                                   FontSize="14"
+                                   FontAttributes="Italic"
+                                   Grid.Column="1"
+                                   VerticalOptions="End"
+                                   HorizontalOptions="End"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
