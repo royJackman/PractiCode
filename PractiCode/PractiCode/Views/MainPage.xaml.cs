@@ -29,6 +29,14 @@ namespace PractiCode.Views
             MenuPages.Add((int)Languages.Browse, (NavigationPage)Detail);
         }
 
+        private NavigationPage SetNavigationColor(TabbedPage Target, string Language)
+        {
+            var page = new NavigationPage(Target);
+            page.BarBackgroundColor = (Color)Application.Current.Resources[Language + "Primary"];
+            page.BarTextColor = (Color)Application.Current.Resources[Language + "Text"];
+            return page;
+        }
+
         public async Task NavigateFromMenu(int id)
         {
             if (!MenuPages.ContainsKey(id))
@@ -39,25 +47,16 @@ namespace PractiCode.Views
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
                     case (int)Languages.Python:
-                        var py = new NavigationPage(new PythonMain());
-                        py.BarBackgroundColor = (Color)Application.Current.Resources["PythonPrimary"];
-                        py.BarTextColor = (Color)Application.Current.Resources["PythonText"];
-                        MenuPages.Add(id, py);
+                        MenuPages.Add(id, SetNavigationColor(new PythonMain(), "Python"));
                         break;
                     case (int)Languages.CSharp:
-                        var cs = new NavigationPage(new CSharpMain());
-                        cs.BarBackgroundColor = (Color)Application.Current.Resources["CSharpPrimary"];
-                        cs.BarTextColor = (Color)Application.Current.Resources["CSharpText"];
-                        MenuPages.Add(id, cs);
+                        MenuPages.Add(id, SetNavigationColor(new CSharpMain(), "CSharp"));
                         break;
                     case (int)Languages.Java:
-                        MenuPages.Add(id, new NavigationPage(new JavaMain()));
+                        MenuPages.Add(id, SetNavigationColor(new JavaMain(), "Java"));
                         break;
                     case (int)Languages.JavaScript:
-                        var js = new NavigationPage(new JavaScriptMain());
-                        js.BarBackgroundColor = (Color)Application.Current.Resources["JavaScriptPrimary"];
-                        js.BarTextColor = (Color)Application.Current.Resources["JavaScriptText"];
-                        MenuPages.Add(id, js);
+                        MenuPages.Add(id, SetNavigationColor(new JavaScriptMain(), "JavaScript"));
                         break;
                 }
             }
