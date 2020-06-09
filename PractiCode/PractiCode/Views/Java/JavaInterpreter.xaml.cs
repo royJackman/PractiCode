@@ -45,5 +45,18 @@ namespace PractiCode.Views.Java
         {
             ((Editor)Interpreter.FindByName("InterpreterTextEditor")).Text = source;
         }
+
+        public void OnAddPrintButtonClicked(object sender, EventArgs e)
+        {
+            var editor = (Editor)Interpreter.FindByName("InterpreterMainEditor");
+            if (editor.Text == null || editor.Text.Trim() == string.Empty)
+            {
+                editor.Text = "System.out.println(\"Change me!\");";
+            }
+            else
+            {
+                editor.Text += "\nSystem.out.println(\"Change me!\");";
+            }
+        }
     }
 }

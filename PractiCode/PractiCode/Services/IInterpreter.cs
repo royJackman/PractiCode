@@ -11,5 +11,7 @@ namespace PractiCode.Services
         void OnClearButtonClicked(object sender, EventArgs e);
 
         void SetSource(string source);
+
+        void OnAddPrintButtonClicked(object sender, EventArgs e);
     }
 }

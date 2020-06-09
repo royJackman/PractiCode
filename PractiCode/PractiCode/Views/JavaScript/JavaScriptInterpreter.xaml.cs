@@ -36,5 +36,18 @@ namespace PractiCode.Views.JavaScript
         {
             ((Editor)Interpreter.FindByName("InterpreterTextEditor")).Text = source;
         }
+
+        public void OnAddPrintButtonClicked(object sender, EventArgs e)
+        {
+            var editor = (Editor)Interpreter.FindByName("InterpreterTextEditor");
+            if (editor.Text == null || editor.Text.Trim() == string.Empty)
+            {
+                editor.Text = "print(\"Change me!\");";
+            }
+            else
+            {
+                editor.Text += "\nprint(\"Change me!\");";
+            }
+        }
     }
 }

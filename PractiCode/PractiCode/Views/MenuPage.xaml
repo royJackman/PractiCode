@@ -22,8 +22,7 @@
         <Image HeightRequest="100" 
                WidthRequest="200"
                Source="practicode_logo.png"/>
-        <ListView x:Name="ListViewMenu"
-                  ItemSelected="OnItemSelected">
+        <ListView x:Name="ListViewMenu">
             <d:ListView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Item 1</x:String>

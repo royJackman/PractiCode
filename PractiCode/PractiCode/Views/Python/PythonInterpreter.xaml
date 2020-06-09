@@ -13,6 +13,7 @@
                          HorizontalOptions="FillAndExpand">
                 <Button Text="Run" TextColor="Black" Clicked="OnRunButtonClicked"/>
                 <Button Text="Clear" TextColor="Black" Clicked="OnClearButtonClicked"/>
+                <Button Text="Add Print" TextColor="Black" Clicked="OnAddPrintButtonClicked"/>
             </StackLayout>
             <controls:InterpreterView x:Name="Interpreter" 
                                       InterpreterEditorPlaceholder="Python code goes here!"
